@@ -1,4 +1,6 @@
 # https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/submissions/
+# 双指正问题 一般来话说都设计两个值得索引，一般的时间复杂度 O(n^2) 但是为了减少时间复杂度，需要对添加两个指正的约束，特别是在一层循环中。指正的遍历方向也是考虑的的因素。
+# 第一个solution 遍历方向相同并且有约束，算法较优。一般指正方向考虑同向或者反向。
 
 # Runtime: 56 ms, faster than 24.12% of Python online submissions for Two Sum II - Input array is sorted.
 # Memory Usage: 13.8 MB, less than 28.66% of Python online submissions for Two Sum II - Input array is sorted.
