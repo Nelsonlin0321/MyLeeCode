@@ -23,8 +23,8 @@ class Solution(object):
                     elif number_one==number_two:
                         pass_number = number_one
 
-# Runtime: 64 ms, faster than 17.19% of Python online submissions for Two Sum II - Input array is sorted.
-# Memory Usage: 13.7 MB, less than 48.97% of Python online submissions for Two Sum II - Input array is sorted.
+# Runtime: 52 ms, faster than 37.67% of Python online submissions for Two Sum II - Input array is sorted.
+# Memory Usage: 13.6 MB, less than 71.72% of Python online submissions for Two Sum II - Input array is sorted.
 
 class Solution(object):
     
@@ -64,6 +64,8 @@ class Solution(object):
                 if num in two_numbers:
                     two_numbers.remove(num)
                     index_list.append(index+1)
+            else:
+                return index_list
                     
         return index_list
         
