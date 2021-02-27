@@ -32,7 +32,7 @@ class Solution(object):
         """
         start_index = 0
         end_index = len(numbers)-1
-        self.recursive_partition_func(array,start_index,end_index)
+        self.recursive_partition_func(numbers,start_index,end_index)
 
 solution = Solution()
 solution.quick_sort(array)
