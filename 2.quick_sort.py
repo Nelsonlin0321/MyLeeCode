@@ -3,6 +3,7 @@ import random
 
 array = list(np.random.randint(0,100,10))
 
+# solution one
 class Solution(object):
     
     def swap_func(self,array,i,j):
@@ -36,3 +37,44 @@ class Solution(object):
 
 solution = Solution()
 solution.quick_sort(array)
+
+### solution two
+class Solution(object):
+        
+    def partition_func(self,nums, left, right):
+        pivot = nums[left]
+        while (left<right):
+
+            while(left < right and nums[right]>=pivot):
+                right-=1
+
+            ### nums[right] < pivot
+            nums[left]=nums[right]
+
+            while(left < right and nums[left]<=pivot):
+                left +=1
+            # nums[left]> pivot
+            nums[right] = nums[left]
+
+        nums[left] = pivot
+        return left
+    
+    def recursive_partition_func(self,array,start_index,end_index):
+        if end_index>start_index:
+            interval_index =self.partition_func(array,start_index,end_index)
+            self.recursive_partition_func(array,start_index,interval_index-1)
+            self.recursive_partition_func(array,interval_index+1,end_index)
+    def quick_sort(self,numbers):
+        """
+        :type numbers: List[int]
+        """
+        start_index = 0
+        end_index = len(numbers)-1
+        self.recursive_partition_func(array,start_index,end_index)
+
+array = list(np.random.randint(0,100,10)) 
+
+solution = Solution()
+
+solution.quick_sort(array)
+
