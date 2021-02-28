@@ -1,3 +1,4 @@
+# solution one
 class Solution(object):
     
     def swap_func(self,array,i,j):
@@ -44,7 +45,7 @@ nums = [3,2,1,5,6,4]
 k = 2
 KthLargest = solution.findKthLargest(nums, k)
 
-
+# solution two
 class Solution(object):
     
     def partition_func(self,nums, left, right):
