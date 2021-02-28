@@ -43,3 +43,43 @@ class Solution(object):
 nums = [3,2,1,5,6,4]
 k = 2
 KthLargest = solution.findKthLargest(nums, k)
+
+
+class Solution(object):
+    
+    def partition_func(self,nums, left, right):
+
+        pivot = nums[left]
+        while (left<right):
+
+            while(left < right and nums[right]>=pivot):
+                right-=1
+
+            ### nums[right] < pivot
+            nums[left]=nums[right]
+
+            while(left < right and nums[left]<=pivot):
+                left +=1
+            # nums[left]> pivot
+            nums[right] = nums[left]
+
+        nums[left] = pivot
+        return left 
+    
+
+    def recursive_partition(self,nums,left,right,k):
+
+        pivot_index = self.partition_func(nums, left, right)
+        if pivot_index==k:
+            return nums[k]
+        elif pivot_index>k:
+            return self.recursive_partition(nums,left,pivot_index-1,k)
+        elif pivot_index<k:
+            return self.recursive_partition(nums,pivot_index+1,right,k)
+        
+            
+    def findKthLargest(self,nums,k):
+        left = 0
+        right = len(nums)-1
+        k= (len(nums) - 1) -(k-1)
+        return self.recursive_partition(nums,left,right,k)
