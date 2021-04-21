@@ -69,3 +69,22 @@ class Solution(object):
                     
         return index_list
         
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        left = 0
+        right = len(nums)-1
+        while ((nums[left]+nums[right])!=target):
+            if nums[right]>target:
+                right-=1
+            elif nums[left]+nums[right]>target:
+                right-=1
+            elif nums[left]+nums[right]<target:
+                left +=1
+            elif left>=right:
+                return None
+        return [left,right]
