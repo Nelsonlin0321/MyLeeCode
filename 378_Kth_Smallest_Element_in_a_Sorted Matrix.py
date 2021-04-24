@@ -39,3 +39,28 @@ class Solution(object):
             if col_j+1<len(matrix[0]) : # only 0,1,2 < 3 for one row only pop the len(row) times
                 heapq.heappush(heap,(matrix[row_i][col_j+1],row_i,col_j+1))
         return value
+
+#Runtime: 136 ms, faster than 91.78% of Python online submissions for Kth Smallest Element in a Sorted Matrix.
+#Memory Usage: 19 MB, less than 92.53% of Python online submissions for Kth Smallest Element in a Sorted Matrix.
+class Solution(object):
+    def kthSmallest(self, matrix, k):
+        """
+        :type matrix: List[List[int]]
+        :type k: int
+        :rtype: int
+        """
+        from bisect import bisect
+        lo, hi  = matrix[0][0],matrix[-1][-1]
+        
+        while (lo<hi):
+            mid = lo + (hi-lo)//2
+            mid_count = sum([bisect(row,mid) for row in matrix]) # the number of element smaller or equal to middle value
+            if mid_count<k: # <=mid is smaller than k
+                lo = mid + 1 
+                # tricky
+                # make lo can equal to hi , if lo = 13, and hi = 14, mid = 13 ,which will be a dead loop. but if lo=12 and hi = 14 , mid = 13, mid is the number of matrix, so add to add one to eqaul to hi.
+            else:
+                hi  =mid
+        return lo
+                
+            
