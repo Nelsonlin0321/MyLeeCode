@@ -58,7 +58,7 @@ class Solution(object):
             if mid_count<k: # <=mid is smaller than k
                 lo = mid + 1 
                 # tricky
-                # make lo can equal to hi , if lo = 13, and hi = 14, mid = 13 ,which will be a dead loop. but if lo=12 and hi = 14 , mid = 13, mid is the number of matrix, so add to add one to eqaul to hi.
+                # make lo can equal to hi , if lo = 13, and hi = 14, mid = 13 ,which will be a dead loop. but if lo=12 and hi = 14 , mid = 13, new lo will be 13+1 = 14.
             else:
                 hi  =mid
         return lo
