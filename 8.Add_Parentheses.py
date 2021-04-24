@@ -24,3 +24,35 @@ class Solution(object):
                 paren_item = "("+"".join(paren_item)+")"
                 sub_expression_split = expression_split[:index*2]+[paren_item]+expression_split[index*2+3:]
                 self.recursive_add_paren(sub_expression_split)
+                
+#Runtime: 20 ms, faster than 88.55% of Python online submissions for Different Ways to Add Parentheses.
+#Memory Usage: 13.6 MB, less than 83.13% of Python online submissions for Different Ways to Add Parentheses.                
+class Solution(object):
+    
+    def helper(self,oper,j,k):
+        if oper=='+':
+            return j+k
+        elif oper =='-':
+            return j-k
+        else:
+            return j*k
+        
+    def diffWaysToCompute(self, expression):
+        """
+        :type expression: str
+        :rtype: List[int]
+        """
+        
+        if expression.isdigit():
+            return [int(expression)]
+        res = []
+        
+        for i in range(len(expression)):
+            if expression[i] in "+-*":
+                res1 = self.diffWaysToCompute(expression[:i])
+                res2 = self.diffWaysToCompute(expression[i+1:])
+                for j in res1:
+                    for k in res2:
+                        res.append(self.helper(expression[i],j,k))
+        return res 
+        
