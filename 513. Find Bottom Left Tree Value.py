@@ -1,6 +1,6 @@
 #https://leetcode.com/problems/find-bottom-left-tree-value/submissions/
-#Runtime: 32 ms, faster than 82.89% of Python online submissions for Find Bottom Left Tree Value.
-#Memory Usage: 18.3 MB, less than 17.87% of Python online submissions for Find Bottom Left Tree Value.
+# Runtime: 28 ms, faster than 96.20% of Python online submissions for Find Bottom Left Tree Value.
+# Memory Usage: 18.4 MB, less than 18.25% of Python online submissions for Find Bottom Left Tree Value.
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, val=0, left=None, right=None):
