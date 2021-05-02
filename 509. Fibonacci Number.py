@@ -16,6 +16,7 @@ class Solution(object):
         else:
             if self.array[n] is None:
                 result =  self.fib(n-1)+self.fib(n-2)
+                # memory the result!
                 self.array[n]=result
                 return result
             else:
