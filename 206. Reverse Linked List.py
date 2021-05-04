@@ -1,3 +1,5 @@
+#Runtime: 32 ms, faster than 85.40% of Python3 online submissions for Reverse Linked List.
+#Memory Usage: 15.5 MB, less than 92.66% of Python3 online submissions for Reverse Linked List.
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, val=0, next=None):
