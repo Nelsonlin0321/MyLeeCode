@@ -6,7 +6,8 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
-#in one pass
+
+# Do it in one pass
 
 class Solution:
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
