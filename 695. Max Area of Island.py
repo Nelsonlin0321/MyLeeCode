@@ -52,6 +52,31 @@ class Solution:
         
         return area_size
 
+#Runtime: 128 ms, faster than 90.35% of Python3 online submissions for Max Area of Island.
+#Memory Usage: 16.2 MB, less than 60.61% of Python3 online submissions for Max Area of Island.
+class Solution:
+    def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
+        row = len(grid)
+        col = len(grid[0])
+        visited = [[False] * col]*row
+        maxArea = 0
+        
+        for r in range(row):
+            for c in range(col):
+                if grid[r][c] == 1:
+                    maxArea = max(maxArea, self.dfs(r, c, grid))
+        
+        return maxArea
+    
+    def dfs(self, r, c, grid):
+        if r<0 or r>=len(grid) or c<0 or c>=len(grid[0]):
+            return 0
+        if not grid[r][c]:
+            return 0
+        grid[r][c] = 0
+        return 1 + self.dfs(r+1, c, grid) + self.dfs(r-1, c, grid) + self.dfs(r, c+1, grid) + self.dfs(r, c-1, grid) # 递推公式
+
+
             
             
     
