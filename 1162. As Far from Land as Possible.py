@@ -1,5 +1,5 @@
-#Runtime: 656 ms, faster than 46.78% of Python3 online submissions for As Far from Land as Possible.
-#Memory Usage: 15.6 MB, less than 41.49% of Python3 online submissions for As Far from Land as Possible.
+# Runtime: 656 ms, faster than 46.78% of Python3 online submissions for As Far from Land as Possible.
+# Memory Usage: 15.5 MB, less than 41.49% of Python3 online submissions for As Far from Land as Possible.
 
 class Solution:
     def maxDistance(self, grid) -> int:
