@@ -21,32 +21,41 @@ class Solution(object):
                 j+=1
         return memo_list[n]
 
-#Time Limit Exceeded
-import math
+#Runtime: 572 ms, faster than 74.19% of Python3 online submissions for Perfect Squares.
+#Memory Usage: 35 MB, less than 9.34% of Python3 online submissions for Perfect Squares.
 class Solution(object):
-    def __init__(self):
-        self.deepth_list = []
     
-    def numSquares(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
-        self.minusSquare(n,0)
-        return min(self.deepth_list)
-        
-    def minusSquare(self,n,deepth):
-        
-        if len(self.deepth_list)!=0:
-            if deepth>=min(self.deepth_list):
-                return 
-        if n==0:
-            self.deepth_list.append(deepth)
-        deepth+=1
-        max_sqrt = int(math.sqrt(n))
-        for sqrt in range(max_sqrt,0,-1):
-            if n-sqrt**2==0:
-                self.deepth_list.append(deepth)
-                break
-            else:
-                self.minusSquare(n-sqrt**2,deepth)
+    def get_remain(self,n):
+
+        j= int(math.sqrt(n)) # 获得能够平方的最大的数
+        m_list = []
+        while (0<j*j<=n):
+
+            m = n-j*j
+            m_list.append(m)
+
+            j-=1
+        return m_list
+    
+    def numSquares(self,n):
+        if n ==0:
+            return 0
+
+        # 获取剩下的数
+        queque = self.get_remain(n) # 初始化队列
+        i = 1
+
+        while len(queque)!=0:
+            size = len(queque)
+            for index in range(size): # 广度搜索 BFS
+                num =queque[index]
+                if num==0:
+                    return i
+                nums = self.get_remain(num)
+                if 0 in nums: # 如果下一个队列有 0 的话, 说明不需要等待迭代到下一个队列，直接返回i+1
+                    return i+1
+                queque.extend(nums)
+            queque = queque[size:]
+            
+            i+=1
+            
