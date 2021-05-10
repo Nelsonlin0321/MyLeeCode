@@ -8,7 +8,7 @@ class Solution:
             return n
         
         max_value = n-1
-        for divisor in range(2,n+1):
+        for divisor in range(2,n//2+1):
             divided = n//divisor
 
             remain = n-(divided*divisor)
