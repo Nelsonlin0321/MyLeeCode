@@ -22,8 +22,9 @@ class Solution:
 
         return False
 
-# Runtime: 152 ms, faster than 97.47% of Python3 online submissions for Search a 2D Matrix II.
-# Memory Usage: 20.5 MB, less than 64.52% of Python3 online submissions for Search a 2D Matrix II.
+
+# Runtime: 156 ms, faster than 91.97% of Python3 online submissions for Search a 2D Matrix II.
+# Memory Usage: 20.4 MB, less than 97.73% of Python3 online submissions for Search a 2D Matrix II.
 
 class Solution:
 
@@ -46,32 +47,21 @@ class Solution:
             return False
 
     def searchMatrix(self, matrix, target) -> bool:
-        hight = len(matrix) - 1
-        width = len(matrix[0]) - 1
-        hi = 0
-        wi = width
 
-        while 0 <= hi <= hight:  # 对每一行进行二分查找
-
-            pivot = matrix[hi][wi]
-            if pivot == target:
+        for row in matrix:
+            max_row_num = row[-1]
+            if max_row_num == target:
                 return True
-            elif target > pivot:  # target 大于目前的该位置的数，因为width 已经是最大了，所以我们宽度要加一
-                hi += 1  # 高度得加一
-                # wi = len(matrix[0]) - 1  # 同时宽度重置
-            elif target < pivot:  # target 小于目前的该位置的数，已经不能加加高度了， 只能在该列中查找先。
-                is_found = self.binary_search(matrix[hi], target)
+            elif target < max_row_num:
+                is_found = self.binary_search(row, target)
                 if is_found:
                     return True
-                else:
-                    hi += 1  # 得在下一列中查找
-
         return False
 
 
 if __name__ == "__main__":
     matrix = [[1, 4, 7, 11, 15], [2, 5, 8, 12, 19], [3, 6, 9, 16, 22], [10, 13, 14, 17, 24], [18, 21, 23, 26, 30]]
-    target = 20
+    target = 10
     print(Solution().searchMatrix(matrix, target))
     # arr = [10, 13, 14, 17, 24]
     # target = 13
